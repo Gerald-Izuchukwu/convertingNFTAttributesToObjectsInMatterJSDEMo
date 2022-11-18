@@ -1,0 +1,53 @@
+const nfts = [
+	{
+		name: 'victor494',
+		shape: 'circle',
+		color: 'green',
+		positionX: 300,
+		positionY: 200,
+		sides: 5,
+		radius: 30,
+		width: 30,
+		height: 90,
+		slope: 20,
+	},
+	{
+		name: 'Abeeujah',
+		shape: 'rectangle',
+		color: 'blue',
+		positionX: 300,
+		positionY: 200,
+		sides: 5,
+		radius: 30,
+		width: 30,
+		height: 90,
+		slope: 20,
+	},
+	{
+		name: 'DDC',
+		shape: 'polygon',
+		color: 'yellow',
+		positionX: 300,
+		positionY: 200,
+		sides: 5,
+		radius: 30,
+		width: 30,
+		height: 90,
+		slope: 20,
+	},
+	{
+		name: 'Dannyx',
+		shape: 'trapezoid',
+		color: 'red',
+		positionX: 300,
+		positionY: 200,
+		sides: 5,
+		radius: 30,
+		width: 30,
+		height: 90,
+		slope: 5,
+	},
+];
+
+// export default nfts;
+module.exports = nfts;
