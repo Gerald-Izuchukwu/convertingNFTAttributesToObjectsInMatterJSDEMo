@@ -1,4 +1,4 @@
-const nfts = require('./nfts');
+// const nfts = require('./nfts');
 const Engine = Matter.Engine;
 const Render = Matter.Render;
 const Runner = Matter.Runner;
@@ -10,6 +10,18 @@ const nfts = [
 		name: 'victor494',
 		shape: 'circle',
 		color: 'green',
+		positionX: 300,
+		positionY: 200,
+		sides: 5,
+		radius: 30,
+		width: 30,
+		height: 90,
+		slope: 20,
+	},
+	{
+		name: 'Gerald',
+		shape: 'circle',
+		color: 'purple',
 		positionX: 300,
 		positionY: 200,
 		sides: 5,
@@ -80,8 +92,8 @@ const nftBoxes = nfts.map((nft) => {
 			nft.height,
 			{
 				render: {
-					fillStyle: 'red',
-					strokeStyle: 'blue',
+					fillStyle: nft.color,
+					strokeStyle: 'grey',
 					lineWidth: 3,
 				},
 			}
@@ -89,32 +101,50 @@ const nftBoxes = nfts.map((nft) => {
 		return boxObj;
 	}
 	if (nft.shape === 'circle') {
-		console.log('yes3');
 		const circleObj = Bodies.circle(
 			nft.positionX,
 			nft.positionY,
-			nft.radius
+			nft.radius,
+			{
+				render: {
+					fillStyle: nft.color,
+					strokeStyle: 'grey',
+					lineWidth: 3,
+				},
+			}
 		);
 		return circleObj;
 	}
 	if (nft.shape === 'polygon') {
-		console.log('yes3');
 		const polyObj = Bodies.polygon(
 			nft.positionX,
 			nft.positionY,
 			nft.sides,
-			nft.radius
+			nft.radius,
+			{
+				render: {
+					fillStyle: nft.color,
+					strokeStyle: 'grey',
+					lineWidth: 3,
+				},
+			}
 		);
 		return polyObj;
 	}
 	if (nft.shape === 'trapezoid') {
-		console.log('yes3');
 		const zoidObj = Bodies.trapezoid(
 			nft.positionX,
 			nft.positionY,
 			nft.width,
 			nft.height,
-			nft.slope
+			nft.slope,
+			{
+				render: {
+					fillStyle: nft.color,
+					strokeStyle: 'grey',
+					lineWidth: 3,
+				},
+			}
 		);
 		return zoidObj;
 	}
@@ -130,8 +160,9 @@ const ground = Bodies.rectangle(400, 610, 810, 60, {
 	},
 });
 
-// add all the bodies to the world
+const newObj = Bodies.fromVertices(120, 150, [{ x: 10, y: 13 }]);
 
+// add all the bodies to the world
 Composite.add(engine.world, [...nftBoxes, ground]);
 
 Render.run(render);
